@@ -20,8 +20,22 @@ namespace GamePhysics
 		void start() override;
 		Collision* checkCollision(ColliderComponent* other);
 
+		void onCollisionEnter(GamePhysics::Collision* other);
+
 		virtual Collision* checkCollisionCircle(CircleColliderComponent* other) = 0;
 		virtual Collision* checkCollisionAABB(AABBColliderComponent* other) = 0;
+
+		ColliderType getColliderType() { return m_colliderType; }
+		void setColliderType(ColliderType type) { m_colliderType = type; }
+
+		void update(double deltaTime) override;
+
+		unsigned int getColor() { return m_color; }
+
+		bool getIsTrigger() { return m_isTrigger; }
+		void setIsTrigger(bool isTrigger) { m_isTrigger = isTrigger; }
+
+		RigidBodyComponent* getRigidBody() { return m_rigidBody; }
 
 	private:
 		bool m_isTrigger;

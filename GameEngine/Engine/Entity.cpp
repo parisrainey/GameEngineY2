@@ -1,8 +1,8 @@
 #include "Entity.h"
+#include "TransformComponent.h"
 
 GameEngine::Entity::Entity()
 {
-	//Init transform component
 	TransformComponent* transform = new TransformComponent();
 	addComponent(transform);
 	m_transform = transform;
@@ -56,10 +56,9 @@ void GameEngine::Entity::end()
 {
 	for (Component* component : m_components)
 	{
-		if (component->getEnabled())
-			component->end();
+		component->end();
 	}
-
+	m_started = false;
 	onEnd();
 }
 
@@ -69,12 +68,18 @@ void GameEngine::Entity::addComponent(Component* component)
 	m_components.add(component);
 }
 
+void GameEngine::Entity::onCollisionEnter(GamePhysics::Collision* collision)
+{
+	for (Component* component : m_components)
+		component->onCollisionEnter(collision);
+}
+
 void GameEngine::Entity::setEnabled(bool enabled)
 {
 	if (!m_enabled && enabled)
-		OnEnable();
+		onEnable();
 	else if (m_enabled && !enabled)
-		OnDisable();
+		onDisable();
 
 	m_enabled = enabled;
 }

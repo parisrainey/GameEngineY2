@@ -32,13 +32,14 @@ namespace GameEngine
 		virtual void onUpdate(double deltaTime) {}
 		virtual void onFixedUpdate(float fixedDeltaTime) {}
 		virtual void onEnd() {}
-		virtual void OnEnable() {}
-		virtual void OnDisable() {}
+		virtual void onEnable() {}
+		virtual void onDisable() {}
+		virtual void onCollisionEnter(GamePhysics::Collision* collision);
 
-		bool getStarted() { return m_started; };
-		TransformComponent* getTransform() { return m_transform; };
+		bool getStarted() { return m_started; }
+		TransformComponent* getTransform() { return m_transform; }
 
-		bool getEnabled() { return m_enabled; };
+		bool getEnabled() { return m_enabled; }
 		void setEnabled(bool enabled);
 
 	private:
@@ -54,7 +55,7 @@ namespace GameEngine
 		Component* component = new T();
 
 		component->setOwner(this);
-		m - components.add(component);
+		m_components.add(component);
 
 		return (T*)component;
 	}
@@ -70,7 +71,7 @@ namespace GameEngine
 	template<typename T>
 	inline T* Entity::getComponent()
 	{
-		T* resule = nullptr;
+		T* result = nullptr;
 
 		for (Component* component : m_components)
 		{
