@@ -31,6 +31,7 @@
     <ClCompile Include="Math\Vector2.cpp" />
     <ClCompile Include="Math\Vector3.cpp" />
     <ClCompile Include="Math\Vector4.cpp" />
+    <ClCompile Include="Physics\AABBColliderComponent.cpp" />
     <ClCompile Include="Physics\CircleColliderComponent.cpp" />
     <ClCompile Include="Physics\ColliderComponent.cpp" />
     <ClCompile Include="Physics\RigidBodyComponent.cpp" />
@@ -49,6 +50,7 @@
     <ClInclude Include="Math\Vector2.h" />
     <ClInclude Include="Math\Vector3.h" />
     <ClInclude Include="Math\Vector4.h" />
+    <ClInclude Include="Physics\AABBColliderComponent.h" />
     <ClInclude Include="Physics\CircleColliderComponent.h" />
     <ClInclude Include="Physics\ColliderComponent.h" />
     <ClInclude Include="Physics\RigidBodyComponent.h" />
@@ -151,7 +153,7 @@
       <AdditionalDependencies>raylib.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)vendor\Raylib5.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)vender\Raylib5.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

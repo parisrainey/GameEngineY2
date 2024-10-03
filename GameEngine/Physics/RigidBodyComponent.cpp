@@ -1,6 +1,7 @@
 #include "RigidBodyComponent.h"
 #include "Engine/TransformComponent.h"
 #include "Engine/Entity.h"
+#include "ColliderComponent.h"
 
 void GamePhysics::RigidBodyComponent::applyForce(GameMath::Vector2 force)
 {
