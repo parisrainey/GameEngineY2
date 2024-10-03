@@ -1,4 +1,5 @@
 #include "AABBColliderComponent.h"
+#include "CircleColliderComponent.h"
 #include "Engine/Entity.h"
 #include "Engine/TransformComponent.h"
 #include "Math/Vector2.h"
@@ -6,8 +7,11 @@
 
 GamePhysics::Collision* GamePhysics::AABBColliderComponent::checkCollisionCircle(CircleColliderComponent* other)
 {
-    //Call Other Function
-    
+    GameMath::Vector2 otherPosition = other->getOwner()->getTransform()->getGlobalPosition();
+    GameMath::Vector2 position = getOwner()->getTransform()->getGlobalPosition();
+    GameMath::Vector2 direction = otherPosition - position;
+    float otherRadius = other->getRadius();
+
     return nullptr;
 }
 
