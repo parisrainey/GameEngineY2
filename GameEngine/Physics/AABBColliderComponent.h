@@ -8,7 +8,12 @@ namespace GamePhysics
 	public:
 		AABBColliderComponent(float width, float height) : ColliderComponent() { m_width = width, m_height = height; }
 
+		
+		/// <param name="other">Circle Collider colliding with AABB</param>
+		/// <returns>Collision Data</returns>
 		GamePhysics::Collision* checkCollisionCircle(CircleColliderComponent* other) override;
+		/// <param name="other">AABB collider colliding with Circle</param>
+		/// <returns>Collision Data</returns>
 		GamePhysics::Collision* checkCollisionAABB(AABBColliderComponent* other) override;
 
 		void draw() override;
