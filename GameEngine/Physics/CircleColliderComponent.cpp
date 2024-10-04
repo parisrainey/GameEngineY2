@@ -12,6 +12,7 @@ GamePhysics::Collision* GamePhysics::CircleColliderComponent::checkCollisionCirc
     GameMath::Vector2 direction = otherPosition - position;
     float distance = direction.getMagnitude();
 
+    // If distance is more than other radius plus our radius, return
     if (distance > other->m_radius + m_radius)
         return nullptr;
 
