@@ -12,6 +12,7 @@ GamePhysics::Collision* GamePhysics::CircleColliderComponent::checkCollisionCirc
     GameMath::Vector2 direction = otherPosition - position;
     float distance = direction.getMagnitude();
 
+    // If distance is more than other radius plus our radius, return
     if (distance > other->m_radius + m_radius)
         return nullptr;
 
@@ -27,7 +28,10 @@ GamePhysics::Collision* GamePhysics::CircleColliderComponent::checkCollisionCirc
 GamePhysics::Collision* GamePhysics::CircleColliderComponent::checkCollisionAABB(AABBColliderComponent* other)
 {
     //Call Other Function
-    return nullptr;
+    GamePhysics::Collision* collisionData = new Collision();
+    collisionData = other->checkCollisionCircle(this);
+
+    return collisionData;
 }
 
 void GamePhysics::CircleColliderComponent::draw()
